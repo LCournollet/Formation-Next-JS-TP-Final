@@ -1,65 +1,105 @@
+import Link from "next/link";
 import Image from "next/image";
+import JobCard from "@/components/JobCard";
+import type { Job } from "@/types/job";
+
+const MOCK_JOBS: Job[] = [
+  {
+    id: "1",
+    title: "Développeur NextJS",
+    date: "2026-01-01",
+    technologies: ["Techno1", "Techno2", "Techno3"],
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    available: true,
+  },
+  {
+    id: "2",
+    title: "Développeur NextJS",
+    date: "2026-01-01",
+    technologies: ["Techno1", "Techno2", "Techno3"],
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    available: true,
+  },
+  {
+    id: "3",
+    title: "Développeur NextJS",
+    date: "2026-01-01",
+    technologies: ["Techno1", "Techno2", "Techno3"],
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    available: true,
+  },
+  {
+    id: "4",
+    title: "Développeur NextJS",
+    date: "2026-01-01",
+    technologies: ["Techno1", "Techno2", "Techno3"],
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    available: true,
+  },
+  {
+    id: "5",
+    title: "Développeur NextJS",
+    date: "2026-01-01",
+    technologies: ["Techno1", "Techno2", "Techno3"],
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    available: true,
+  },
+  {
+    id: "6",
+    title: "Développeur NextJS",
+    date: "2026-01-01",
+    technologies: ["Techno1", "Techno2", "Techno3"],
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    available: true,
+  },
+];
+
+const LATEST_JOBS = MOCK_JOBS.slice(0, 6);
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <main>
+      {/* Hero */}
+      <div className="relative w-full h-52">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/hero.jpg"
+          alt="Bannière"
+          fill
+          className="object-cover"
           priority
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+      </div>
+
+      {/* Latest offers */}
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            Nos dernières opportunités
+          </h2>
+          <div className="w-16 h-0.5 bg-blue-600" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {LATEST_JOBS.map((job) => (
+            <JobCard key={job.id} job={job} />
+          ))}
         </div>
-      </main>
-    </div>
+
+        <div className="flex justify-center mt-10">
+          <Link
+            href="/offres"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3 rounded transition-colors"
+          >
+            Voir toutes les offres
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }
