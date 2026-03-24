@@ -1,64 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import JobCard from "@/components/JobCard";
-import type { Job } from "@/types/job";
-
-const MOCK_JOBS: Job[] = [
-  {
-    id: "1",
-    title: "Développeur NextJS",
-    date: "2026-01-01",
-    technologies: ["Techno1", "Techno2", "Techno3"],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    available: true,
-  },
-  {
-    id: "2",
-    title: "Développeur NextJS",
-    date: "2026-01-01",
-    technologies: ["Techno1", "Techno2", "Techno3"],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    available: true,
-  },
-  {
-    id: "3",
-    title: "Développeur NextJS",
-    date: "2026-01-01",
-    technologies: ["Techno1", "Techno2", "Techno3"],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    available: true,
-  },
-  {
-    id: "4",
-    title: "Développeur NextJS",
-    date: "2026-01-01",
-    technologies: ["Techno1", "Techno2", "Techno3"],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    available: true,
-  },
-  {
-    id: "5",
-    title: "Développeur NextJS",
-    date: "2026-01-01",
-    technologies: ["Techno1", "Techno2", "Techno3"],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    available: true,
-  },
-  {
-    id: "6",
-    title: "Développeur NextJS",
-    date: "2026-01-01",
-    technologies: ["Techno1", "Techno2", "Techno3"],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    available: true,
-  },
-];
+import { MOCK_JOBS } from "@/data/jobs";
 
 const LATEST_JOBS = MOCK_JOBS.slice(0, 6);
 

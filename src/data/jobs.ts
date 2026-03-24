@@ -1,0 +1,16 @@
+import type { Job } from "@/types/job";
+
+export const MOCK_JOBS: Job[] = [
+  { id: "1",  title: "Développeur NextJS",   date: "2026-01-01", technologies: ["React", "TypeScript"],          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", available: true },
+  { id: "2",  title: "Développeur React",    date: "2026-01-05", technologies: ["React", "GraphQL"],             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", available: true },
+  { id: "3",  title: "Ingénieur DevOps",     date: "2026-01-10", technologies: ["Docker", "Kubernetes"],         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", available: true },
+  { id: "4",  title: "Développeur Backend",  date: "2026-01-12", technologies: ["Node.js", "TypeScript"],        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", available: true },
+  { id: "5",  title: "Développeur Fullstack",date: "2026-01-15", technologies: ["React", "Node.js", "Docker"],   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", available: true },
+  { id: "6",  title: "Développeur Mobile",   date: "2026-01-18", technologies: ["React", "TypeScript"],          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", available: true },
+  { id: "7",  title: "Architecte Cloud",     date: "2026-01-20", technologies: ["Docker", "Kubernetes", "AWS"], description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", available: true },
+  { id: "8",  title: "Développeur NextJS",   date: "2026-01-22", technologies: ["React", "GraphQL", "Node.js"], description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", available: true },
+  { id: "9",  title: "Lead Développeur",     date: "2026-01-25", technologies: ["TypeScript", "Node.js"],        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", available: true },
+  { id: "10", title: "Développeur Frontend", date: "2026-01-28", technologies: ["React", "TypeScript", "GraphQL"], description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", available: true },
+  { id: "11", title: "SRE Engineer",         date: "2026-02-01", technologies: ["Docker", "Kubernetes"],         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", available: true },
+  { id: "12", title: "Développeur Backend",  date: "2026-02-05", technologies: ["Node.js", "GraphQL", "AWS"],   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", available: true },
+];
