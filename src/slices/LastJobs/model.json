@@ -1,0 +1,54 @@
+{
+  "id": "last_jobs",
+  "type": "SharedSlice",
+  "name": "LastJobs",
+  "description": "LastJobs",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": "Titre"
+          }
+        },
+        "joblist": {
+          "type": "Group",
+          "config": {
+            "label": "JobList",
+            "repeat": true,
+            "fields": {
+              "job": {
+                "type": "Link",
+                "config": {
+                  "label": "job",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    {
+                      "id": "job",
+                      "fields": [
+                        "description",
+                        "date",
+                        "titre",
+                        "technos"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

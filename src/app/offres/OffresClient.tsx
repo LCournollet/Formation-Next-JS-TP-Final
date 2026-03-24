@@ -11,9 +11,15 @@ type Props = {
 export default function OffresClient({ jobs }: Props) {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
 
-  const allTechnologies = Array.from(
-    new Set(jobs.flatMap((job) => job.technologies))
-  );
+  const allTechnologies = [
+    "Next.js", "React", "TypeScript", "Tailwind", "JavaScript",
+    "Redux", "CSS", "Node.js", "Express", "MongoDB",
+    "Vue.js", "Vuex", "SCSS", "Python", "Django",
+    "PostgreSQL", "REST", "Angular", "RxJS", "HTML",
+    "React Native", "Expo", "API", "Docker", "Kubernetes",
+    "AWS", "CI/CD", "PHP", "Laravel", "MySQL",
+    "Blade", "Java", "Spring Boot", "Hibernate", "SQL",
+  ];
 
   const toggleFilter = (tech: string) => {
     setActiveFilters((prev) =>

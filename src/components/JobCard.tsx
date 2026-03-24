@@ -14,7 +14,7 @@ export default function JobCard({ job }: Props) {
   });
 
   return (
-    <Link href={`/offres/${job.id}`} className="block">
+    <Link href={`/${job.uid ?? job.id}`} className="block">
       <div className="bg-white border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow h-full">
         <div className="flex items-start justify-between mb-3">
           <h3 className="font-bold text-gray-900 text-base">{job.title}</h3>
