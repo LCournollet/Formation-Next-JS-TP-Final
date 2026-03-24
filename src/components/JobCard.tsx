@@ -7,20 +7,26 @@ type Props = {
 };
 
 export default function JobCard({ job }: Props) {
-  const formattedDate = new Date(job.date).toLocaleDateString("fr-FR", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  });
+  const formattedDate = job.date
+    ? new Date(job.date).toLocaleDateString("fr-FR", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      })
+    : "";
+
+  const href = `/${job.uid ?? job.id}`;
 
   return (
-    <Link href={`/${job.uid ?? job.id}`} className="block">
-      <div className="bg-white border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow h-full">
-        <div className="flex items-start justify-between mb-3">
-          <h3 className="font-bold text-gray-900 text-base">{job.title}</h3>
-          <BookmarkButton />
-        </div>
+    <div className="bg-white border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow h-full flex flex-col">
+      <div className="flex items-start justify-between mb-3">
+        <Link href={href} className="font-bold text-gray-900 text-base hover:underline">
+          {job.title}
+        </Link>
+        <BookmarkButton />
+      </div>
 
+      {formattedDate && (
         <div className="flex items-center gap-1.5 text-blue-600 text-sm mb-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +44,9 @@ export default function JobCard({ job }: Props) {
           </svg>
           <span>{formattedDate}</span>
         </div>
+      )}
 
+      {job.technologies.length > 0 && (
         <div className="flex items-center gap-1.5 text-blue-600 text-sm mb-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -54,13 +62,23 @@ export default function JobCard({ job }: Props) {
               d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
             />
           </svg>
-          <span>{job.technologies.join(", ")}</span>
+          <span className="flex flex-wrap gap-x-1">
+            {job.technologies.map((tech, i) => (
+              <Link
+                key={tech}
+                href={`/techno/${encodeURIComponent(tech)}`}
+                className="hover:underline"
+              >
+                {tech}{i < job.technologies.length - 1 ? "," : ""}
+              </Link>
+            ))}
+          </span>
         </div>
+      )}
 
-        <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
-          {job.description}
-        </p>
-      </div>
-    </Link>
+      <Link href={href} className="text-gray-600 text-sm leading-relaxed line-clamp-3 mt-auto">
+        {job.description}
+      </Link>
+    </div>
   );
 }
