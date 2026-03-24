@@ -1,19 +1,32 @@
 "use client";
 
-export default function BookmarkButton() {
+import { useBookmarkStore } from "@/lib/bookmarkStore";
+import type { Job } from "@/types/job";
+
+type Props = {
+  job: Job;
+};
+
+export default function BookmarkButton({ job }: Props) {
+  const { toggle, isBookmarked } = useBookmarkStore();
+  const saved = isBookmarked(job.id);
+
   return (
     <button
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
+        toggle(job);
       }}
-      aria-label="Sauvegarder"
-      className="text-gray-400 hover:text-blue-600 transition-colors ml-2 shrink-0"
+      aria-label={saved ? "Retirer" : "Sauvegarder"}
+      className={`transition-colors ml-2 shrink-0 cursor-pointer ${
+        saved ? "text-blue-600" : "text-gray-400 hover:text-blue-600"
+      }`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="w-5 h-5"
-        fill="none"
+        fill={saved ? "currentColor" : "none"}
         viewBox="0 0 24 24"
         stroke="currentColor"
         strokeWidth={1.5}

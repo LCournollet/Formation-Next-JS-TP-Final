@@ -23,7 +23,7 @@ export default function JobCard({ job }: Props) {
         <Link href={href} className="font-bold text-gray-900 text-base hover:underline">
           {job.title}
         </Link>
-        <BookmarkButton />
+        <BookmarkButton job={job} />
       </div>
 
       {formattedDate && (
